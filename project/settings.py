@@ -116,6 +116,9 @@ DATABASES = {
         "PASSWORD": env.str("DATABASE_PASSWORD"),
         "HOST": env.str("DATABASE_HOST"),
         "PORT": env.int("DATABASE_PORT"),
+        'OPTIONS': {
+           "init_command": "SET GLOBAL max_connections = 100000"
+        }
     }
 }
 
