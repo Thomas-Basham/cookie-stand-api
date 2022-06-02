@@ -194,7 +194,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://music-api-thomas-basham.herokuapp.com'
+    'https://cookie-stand-api-tb.herokuapp.com'
 ]
 # Activate Django-Heroku.
 django_heroku.settings(locals())
