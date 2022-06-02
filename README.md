@@ -2,4 +2,6 @@
 
 **Author**: Thomas Basham
 
-## [Deployed Link](https://cookie-stand-api-tb.herokuapp.com/api/v1/cookiestands/)
+## [Deployed Link](https://cookie-stand-api-tb.herokuapp.com)
+
+## [API Quickstart Forked From JB Tellez](https://github.com/codefellows/python-401-api-quickstart)
