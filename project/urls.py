@@ -18,6 +18,7 @@ from django.urls import include, path
 from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
+    path("", include("cookie_stands.urls")),
     path("admin/", admin.site.urls),
     path("api/v1/cookiestands/", include("cookie_stands.urls")),
     path("api-auth/", include("rest_framework.urls")),

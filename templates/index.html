@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+  <h1 class="heading">Cookie Stand API!</h1>
+
+  {% for item in object_list %}
+    <div class="container">
+      <h1>{{ item.location }}</h1>
+      <p>{{ item.description }}</p>
+      <p>Min Cust/hr: {{ item.minimum_customers_per_hour }}</p>
+      <p>Max Cust/hr: {{ item.maximum_customers_per_hour }}</p>
+      <p>avg cookie/sale: {{ item.average_cookies_per_sale }}</p>
+    </div>
+
+  {% endfor %}
+{% endblock content %}
