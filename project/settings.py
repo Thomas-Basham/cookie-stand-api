@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     # local
     "accounts",
     "cookie_stands",
+    "django_tables2",
 ]
 
 MIDDLEWARE = [
