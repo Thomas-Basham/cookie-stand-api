@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
+from datetime import timedelta
 from pathlib import Path
 
 import dj_database_url
@@ -117,7 +118,8 @@ DATABASES = {
         "HOST": env.str("DATABASE_HOST"),
         "PORT": env.int("DATABASE_PORT"),
         'OPTIONS': {
-           "init_command": "SET GLOBAL max_connections = 100000"
+            'sslmode': None,
+           # "init_command": "SET GLOBAL max_connections = 100000"
         }
     }
 }
@@ -179,15 +181,24 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.BasicAuthentication",
     ],
+    # 'DEFAULT_AUTHENTICATION_CLASSES': [],
+    # 'DEFAULT_PERMISSION_CLASSES': [],
 }
 
 CORS_ORIGIN_WHITELIST = tuple(env.list("ALLOWED_ORIGINS"))
 CORS_ALLOW_ALL_ORIGINS = env.bool("ALLOW_ALL_ORIGINS")
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(
+        seconds=60 * 60
+    )
+}
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 # ************ HEROKU DEPLOYMENT *****************
 
-# This module uses Heroku’s DATABASE_URL variable if it’s on Heroku,
-# or it uses the DATABASE_URL we set in the .env file if we’re working locally.
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
